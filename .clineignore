@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+**/node_modules/
+vendor/
+**/vendor/
+.pnp
+.pnp.js
+
+# Build outputs
+/build/
+/dist/
+/.next/
+/out/
+bootstrap/cache/
+
+# Testing
+/coverage/
+
+# Environment variables
+.env
+.env.example
+
+# Large data files
+*.csv
+*.xlsx
+
+CODE_OF_CONDUCT.md
+LICENSE
