@@ -1,0 +1,33 @@
+{
+    "name": "catalyst/private-credit",
+    "description": "Catalyst Private Credit Plugin",
+    "type": "laravel-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Catalyst One Studio",
+            "email": "catalystonestudio@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Catalyst\\PrivateCredit\\PrivateCreditServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Catalyst\\PrivateCredit\\": "src/",
+            "Catalyst\\PrivateCredit\\Database\\Factories\\": "database/factories/",
+            "Catalyst\\PrivateCredit\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Catalyst\\PrivateCredit\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

@@ -26,4 +26,6 @@ return [
     Webkul\TimeOff\TimeOffServiceProvider::class,
     Webkul\Timesheet\TimesheetServiceProvider::class,
     Webkul\Website\WebsiteServiceProvider::class,
+    // NOTE: CATALYST PLUGINS
+    Catalyst\PrivateCredit\PrivateCreditServiceProvider::class,
 ];
