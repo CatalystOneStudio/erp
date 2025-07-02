@@ -120,9 +120,9 @@ class ChartOfAccountResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => \Catalyst\PrivateCredit\Filament\Resources\ChartOfAccountResource\Pages\ListChartOfAccounts::route('/'),
+            'index' => \Catalyst\PrivateCredit\Filament\Admin\Resources\ChartOfAccountResource\Pages\ListChartOfAccounts::route('/'),
             'create' => \Catalyst\PrivateCredit\Filament\Admin\Resources\ChartOfAccountResource\Pages\CreateChartOfAccount::route('/create'),
-            'edit' => \Catalyst\PrivateCredit\Filament\Resources\ChartOfAccountResource\Pages\EditChartOfAccount::route('/{record}/edit'),
+            'edit' => \Catalyst\PrivateCredit\Filament\Admin\Resources\ChartOfAccountResource\Pages\EditChartOfAccount::route('/{record}/edit'),
         ];
     }
 

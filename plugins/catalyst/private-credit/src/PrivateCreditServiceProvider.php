@@ -25,21 +25,24 @@ class PrivateCreditServiceProvider extends PackageServiceProvider
             '2025_06_29_003705_create_private_credit_fees_table',
             '2025_06_29_195328_create_private_credit_banks_table',
             '2025_06_29_195408_create_private_credit_funding_accounts_table',
-            '2025_06_29_195436_create_private_credit_chart_of_accounts_table'
+            '2025_06_29_195436_create_private_credit_chart_of_accounts_table',
+            '2025_07_02_054302_create_timezones_table'
         ])
         ->runsMigrations()
         ->hasSettings([
             '2025_06_30_171306_create_private_credit_settings',
+            '2025_07_02_042957_create_private_credit_general_settings',
         ])
         ->runsSettings()
         ->hasDependencies([
-            'website',
+            'private-credit-website',
         ])
         ->hasSeeder('Catalyst\\PrivateCredit\\Database\\Seeders\\DatabaseSeeder')
         ->hasInstallCommand(function (InstallCommand $command) {
             $command
             ->installDependencies()
-            ->runsMigrations();
+            ->runsMigrations()
+            ->runsSeeders();
         })
         ->hasUninstallCommand(function (UninstallCommand $command) {});
     }

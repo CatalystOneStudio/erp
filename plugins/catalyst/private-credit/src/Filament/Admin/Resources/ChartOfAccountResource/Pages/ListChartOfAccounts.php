@@ -1,6 +1,6 @@
 <?php
 
-namespace Catalyst\PrivateCredit\Filament\Resources\ChartOfAccountResource\Pages;
+namespace Catalyst\PrivateCredit\Filament\Admin\Resources\ChartOfAccountResource\Pages;
 
 use Catalyst\PrivateCredit\Filament\Admin\Resources\ChartOfAccountResource;
 use Filament\Actions;
