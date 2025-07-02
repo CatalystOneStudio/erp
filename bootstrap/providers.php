@@ -25,7 +25,8 @@ return [
     Webkul\Security\SecurityServiceProvider::class,
     Webkul\TimeOff\TimeOffServiceProvider::class,
     Webkul\Timesheet\TimesheetServiceProvider::class,
-    Webkul\Website\WebsiteServiceProvider::class,
+    // Webkul\Website\WebsiteServiceProvider::class,
     // NOTE: CATALYST PLUGINS
     Catalyst\PrivateCredit\PrivateCreditServiceProvider::class,
+    Catalyst\PrivateCreditWebsite\PrivateCreditWebsiteServiceProvider::class,
 ];

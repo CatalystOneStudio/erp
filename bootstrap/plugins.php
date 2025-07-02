@@ -21,7 +21,8 @@ return [
     Webkul\Partner\PartnerPlugin::class,
     Webkul\TimeOff\TimeOffPlugin::class,
     Webkul\Timesheet\TimesheetPlugin::class,
-    Webkul\Website\WebsitePlugin::class,
+    // Webkul\Website\WebsitePlugin::class,
     // NOTE: CATALYST PLUGINS
     Catalyst\PrivateCredit\PrivateCreditPlugin::class,
+    Catalyst\PrivateCreditWebsite\PrivateCreditWebsitePlugin::class,
 ];
