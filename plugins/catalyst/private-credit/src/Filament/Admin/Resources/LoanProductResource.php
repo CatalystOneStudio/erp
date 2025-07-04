@@ -5,6 +5,7 @@ namespace Catalyst\PrivateCredit\Filament\Admin\Resources;
 use Catalyst\PrivateCredit\Models\ChartOfAccount;
 use Catalyst\PrivateCredit\Models\FundingAccount;
 use Catalyst\PrivateCredit\Models\LoanProduct;
+use Catalyst\PrivateCredit\Settings\GeneralSettings;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -20,6 +21,8 @@ class LoanProductResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
 
     protected static ?string $navigationGroup = 'Loan Management';
+
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
@@ -47,18 +50,24 @@ class LoanProductResource extends Resource
 
                                 Forms\Components\TextInput::make('min_principal_amount')
                                     ->label('Minimun Principle Amount')
+                                    ->default(0)
+                                    ->mask(\Filament\Support\RawJs::make('$money($input)'))
+                                    ->stripCharacters(',')
                                     ->numeric()
                                     ->required()
                                     ->prefix('$')
-                                    ->default(0)
+                                    ->suffix(fn (GeneralSettings $settings): string => $settings->currency)
                                     ->columnSpan(['default' => 6, 'md' => 3]),
 
                                 Forms\Components\TextInput::make('max_principal_amount')
                                     ->label('Maximun Principle Amount')
+                                    ->default(0)
+                                    ->mask(\Filament\Support\RawJs::make('$money($input)'))
+                                    ->stripCharacters(',')
                                     ->numeric()
                                     ->required()
                                     ->prefix('$')
-                                    ->default(0)
+                                    ->suffix(fn (GeneralSettings $settings): string => $settings->currency)
                                     ->columnSpan(['default' => 6, 'md' => 3]),
 
                                 Forms\Components\Select::make('duration_period')

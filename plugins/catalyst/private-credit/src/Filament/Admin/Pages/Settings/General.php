@@ -34,7 +34,7 @@ class General extends SettingsPage
                         Select::make('currency')
                             ->label(__('private-credit::filament/pages/settings/general.currency_label'))
                             ->searchable()
-                            ->options(Currency::query()->pluck('name'))
+                            ->options(Currency::query()->pluck('name', 'name'))
                             ->optionsLimit(169)
                             ->required(),
                         TextInput::make('address')

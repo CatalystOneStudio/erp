@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Catalyst\PrivateCredit\Models\Fee;
 
-class LoanProductFeeSeeder extends Seeder
+class FeeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,8 @@ class LoanProductFeeSeeder extends Seeder
     public function run(): void
     {
         Fee::create([
+            'feesable_id' => 1,
+            'feesable_type' => 'loan_product',
             'name' => 'Processing Fee',
             'type' => 'percentage',
             'calculate_on' => 'principal',
@@ -23,6 +25,8 @@ class LoanProductFeeSeeder extends Seeder
         ]);
 
         Fee::create([
+            'feesable_id' => 2,
+            'feesable_type' => 'loan_product',
             'name' => 'Application Fee',
             'type' => 'fixed',
             'calculate_on' => 'principal',
@@ -32,6 +36,8 @@ class LoanProductFeeSeeder extends Seeder
         ]);
 
         Fee::create([
+            'feesable_id' => 3,
+            'feesable_type' => 'loan_product',
             'name' => 'Late Payment Fee',
             'type' => 'fixed',
             'calculate_on' => 'principal_and_interest',

@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
             FundingAccountSeeder::class,
             ChartOfAccountSeeder::class,
             LoanProductSeeder::class,
-            LoanProductFeeSeeder::class,
+            FeeSeeder::class,
             TimezonesSeeder::class
         ]);
     }

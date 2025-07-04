@@ -3,7 +3,7 @@
 return [
     'navigation' => [
         'title' => 'Pages',
-        'group' => 'Borrower Management',
+        'group' => 'Settings',
     ],
 
     'form' => [

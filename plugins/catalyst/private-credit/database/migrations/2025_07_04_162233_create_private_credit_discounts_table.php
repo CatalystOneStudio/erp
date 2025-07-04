@@ -11,17 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('private_credit_fees', function (Blueprint $table) {
+        Schema::create('private_credit_discounts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('loan_id')->constrained('private_credit_loans')->cascadeOnDelete();
             $table->string('name');
             $table->enum('type', ['percentage', 'fixed']);
-            $table->enum('calculate_on', ['principal', 'interest', 'principal_and_interest'])->default('principal');
-            $table->decimal('value', 12, 4);
-            $table->boolean('is_active_deduct_from_principal')->default(false);
-            $table->boolean('is_active_spread_across_repayments')->default(false);
-
-            $table->morphs('feesable');
-
+            $table->decimal('value', 12, 2);
             $table->timestamps();
         });
     }
@@ -31,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('private_credit_fees');
+        Schema::dropIfExists('private_credit_discounts');
     }
 };

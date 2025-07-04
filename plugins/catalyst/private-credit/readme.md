@@ -6,8 +6,6 @@ This plugin provides a comprehensive solution for managing the entire lifecycle 
 
 # 📦 Private Credit Lending Software Roadmap
 
-## ✅ PHASE 1 – Core Foundation (MVP Build)
-
 ### Accounting
 
 - [x] Start of Financial Year
@@ -16,12 +14,26 @@ This plugin provides a comprehensive solution for managing the entire lifecycle 
 - [x] Banks Resource
 - [ ] Reports
 
+### 📘 Accounting & GL Integration
+
+- [ ] Event-based journal entries
+- [ ] Loan lifecycle accounting
+- [ ] Chart of accounts mapping
+- [ ] Export to accounting platforms (e.g., QuickBooks, SAP)
+
 ### 🏷️ Loan Product Configuration
 
 - [x] Loan Product Details
 - [x] Interest rate types (fixed, percentage)
 - [x] Fee schedules (origination, late, early repayment)
 - [ ] Eligibility rule builder
+
+### 💼 Loan Structuring & Disbursement
+
+- [x] Repayment schedule generator
+- [ ] Amortization and calculator tools
+- [x] Collateral management (manual)
+- [ ] Record loan disbursement (manual/batch)
 
 ### 🧾 Customer Onboarding & KYC
 
@@ -43,23 +55,12 @@ This plugin provides a comprehensive solution for managing the entire lifecycle 
 - [ ] Notes and comments for decisioning
 - [ ] Approval hierarchy support
 
-## 💸 PHASE 2 – Servicing & Disbursement
-
-### 💼 Loan Structuring & Disbursement
-
-- [ ] Repayment schedule generator
-- [ ] Amortization and calculator tools
-- [ ] Collateral management (manual)
-- [ ] Record loan disbursement (manual/batch)
-
 ### 💳 Loan Servicing & Repayment Tracking
 
 - [ ] Schedule repayment tracking
 - [ ] Manual repayment recording
 - [ ] Early/partial repayment handling
 - [ ] Missed/late payment tracking
-
-## 📉 PHASE 3 – Collections & Automation
 
 ### 📞 Collections & Delinquency Management
 
@@ -74,8 +75,6 @@ This plugin provides a comprehensive solution for managing the entire lifecycle 
 - [ ] Event-based trigger system
 - [ ] Merge fields (due date, balance, name, etc.)
 - [ ] Notification logs and resends
-
-## 📊 PHASE 4 – Reporting & Control
 
 ### 📈 Reporting & Analytics
 
@@ -99,8 +98,6 @@ This plugin provides a comprehensive solution for managing the entire lifecycle 
 - [ ] Version control
 - [ ] E-signature integration (e.g., DocuSign)
 
-## 🧠 PHASE 5 – Advanced Intelligence & Integration
-
 ### 🤖 Advanced Underwriting & Credit Scoring
 
 - [ ] Rule-based scoring engine
@@ -108,21 +105,12 @@ This plugin provides a comprehensive solution for managing the entire lifecycle 
 - [ ] Bank statement parser
 - [ ] Risk band assignment
 
-### 📘 Accounting & GL Integration
-
-- [ ] Event-based journal entries
-- [ ] Loan lifecycle accounting
-- [ ] Chart of accounts mapping
-- [ ] Export to accounting platforms (e.g., QuickBooks, SAP)
-
 ### 🔌 API & Third-Party Integrations
 
 - [ ] REST/GraphQL APIs
 - [ ] Webhook notifications
 - [ ] CRM or ERP integration options
 - [ ] Custom integration interface
-
-## 🧱 PHASE 6 – Scaling, Admin & UX
 
 ### ⚙️ Admin & Config Tools
 

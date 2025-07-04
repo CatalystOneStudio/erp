@@ -5,6 +5,7 @@ namespace Catalyst\PrivateCredit\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Catalyst\PrivateCredit\Models\Fee;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class LoanProduct extends Model
 {
@@ -46,8 +47,34 @@ class LoanProduct extends Model
         'late_penalty_is_active' => 'boolean',
     ];
 
-    public function fees()
+    /**
+     * Get all of the loan's fees.
+     */
+    public function fees(): MorphMany
     {
-        return $this->belongsToMany(Fee::class, 'private_credit_loan_product_fee');
+        return $this->morphMany(Fee::class, 'feesable');
+    }
+
+    /**
+     * Delete loan record and related fee records.
+     */
+    public static function destroy($ids)
+    {
+        $ids = value(function () use($ids) {
+            if ($ids instanceof \Illuminate\Database\Eloquent\Collection) return $ids->modelKeys();
+            if ($ids instanceof \Illuminate\Support\Collection) return $ids->all();
+            return is_array($ids) ? $ids : func_get_args();
+        });
+
+        if (count($ids) === 0) return 0;
+
+        $deleted_record_ids = array_map(
+            function ($id) {
+                self::fees()->where('id', $id)->destroy();
+                if (self::where('id', $id)->delete()) return $id;
+            }, $ids
+        );
+
+        return count($deleted_record_ids);
     }
 }

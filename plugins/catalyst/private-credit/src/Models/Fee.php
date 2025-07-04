@@ -4,6 +4,7 @@ namespace Catalyst\PrivateCredit\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Fee extends Model
 {
@@ -12,6 +13,8 @@ class Fee extends Model
     protected $table = 'private_credit_fees';
 
     protected $fillable = [
+        'feesable_id',
+        'feesable_type',
         'name',
         'type',
         'calculate_on',
@@ -25,8 +28,11 @@ class Fee extends Model
         'is_active_spread_across_repayments' => 'boolean',
     ];
 
-    public function loanProducts()
+    /**
+     * Get the parent feesable model (loan_product or loan)
+     */
+    public function feesable(): MorphTo
     {
-        return $this->belongsToMany(LoanProduct::class, 'private_credit_loan_product_fee');
+        return $this->morphTo();
     }
 }

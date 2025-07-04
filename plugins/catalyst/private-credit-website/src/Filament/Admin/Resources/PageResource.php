@@ -20,7 +20,7 @@ class PageResource extends Resource
 {
     protected static ?string $model = PageModel::class;
 
-    protected static ?string $slug = 'website/pages';
+    protected static ?string $slug = 'settings/pages';
 
     protected static ?string $navigationIcon = 'heroicon-o-window';
 
