@@ -10,6 +10,7 @@ use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\Actions;
 use Filament\Infolists\Components\Actions\Action;
+use Filament\Infolists\Components\Fieldset;
 use Filament\Infolists\Components\Split;
 use Filament\Support\Enums\FontWeight;
 
@@ -22,38 +23,44 @@ class ViewLoan extends ViewRecord
         return $infolist
             ->schema([
                 Tabs::make('Tabs')
+                    ->contained(false)
+                    ->columnSpanFull()
                     ->tabs([
                         Tabs\Tab::make('Details')
                             ->icon('heroicon-o-identification')
                             ->schema([
-                                Section::make('Loan Details')
-                                    ->schema([
-                                        Split::make([
-                                            Section::make([
-                                                TextEntry::make('Loan Information')
-                                                    ->color('gray')
+                                Split::make([
+                                    Section::make([
+                                        Fieldset::make('Loan Information')
+                                            ->schema([
+                                                TextEntry::make('id')
+                                                    ->label('Loan ID'),
+                                                TextEntry::make('loan_duration')
+                                                    ->label('Duration'),
+                                            ]),
+                                        Fieldset::make('Amount Details')
+                                            ->schema([
+                                                TextEntry::make('principal_amount')->money('USD')
+                                                    ->color('info')
                                                     ->weight(FontWeight::Bold)
                                                     ->size(TextEntry\TextEntrySize::Large),
-                                                TextEntry::make('principal_amount')->money('USD'),
                                                 TextEntry::make('interest_rate')->suffix('%'),
                                                 TextEntry::make('interest_method'),
-                                                TextEntry::make('loan_duration')->label('Duration'),
-                                                TextEntry::make('duration_period')->label('Period'),
-                                                TextEntry::make('repayment_cycle'),
-                                                TextEntry::make('loan_release_date')->date(),
-                                            ]),
-                                            Section::make([
-                                                TextEntry::make('loanProduct.name')->label('Loan Product'),
-                                                TextEntry::make('principal_amount')->money('USD'),
-                                                TextEntry::make('interest_rate')->suffix('%'),
-                                                TextEntry::make('interest_method'),
-                                                TextEntry::make('loan_duration')->label('Duration'),
                                                 TextEntry::make('duration_period')->label('Period'),
                                                 TextEntry::make('repayment_cycle'),
                                                 TextEntry::make('loan_release_date')->date(),
                                             ])
-                                        ])->from('md')
                                     ]),
+                                    Section::make([
+                                        Fieldset::make('Loan Details')
+                                            ->schema([
+                                                TextEntry::make('principal_amount')->money('USD'),
+                                                TextEntry::make('interest_rate')->suffix('%'),
+                                                TextEntry::make('interest_method'),
+                                                TextEntry::make('loan_duration')->label('Duration'),
+                                            ])
+                                    ])
+                                ])->from('md')
                             ]),
 
                         Tabs\Tab::make('Fees & Penalties')
@@ -123,7 +130,7 @@ class ViewLoan extends ViewRecord
                                         ])->fullWidth(),
                                     ]),
                             ]),
-                    ])->columnSpanFull(),
+                    ]),
             ]);
     }
 }

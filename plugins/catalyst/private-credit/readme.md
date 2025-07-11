@@ -13,13 +13,9 @@ This plugin provides a comprehensive solution for managing the entire lifecycle 
 - [x] Charts of Accounts
 - [x] Banks Resource
 - [ ] Reports
-
-### 📘 Accounting & GL Integration
-
 - [ ] Event-based journal entries
 - [ ] Loan lifecycle accounting
 - [ ] Chart of accounts mapping
-- [ ] Export to accounting platforms (e.g., QuickBooks, SAP)
 
 ### 🏷️ Loan Product Configuration
 
@@ -105,13 +101,6 @@ This plugin provides a comprehensive solution for managing the entire lifecycle 
 - [ ] Bank statement parser
 - [ ] Risk band assignment
 
-### 🔌 API & Third-Party Integrations
-
-- [ ] REST/GraphQL APIs
-- [ ] Webhook notifications
-- [ ] CRM or ERP integration options
-- [ ] Custom integration interface
-
 ### ⚙️ Admin & Config Tools
 
 - [ ] Workflow designer
@@ -132,12 +121,3 @@ This plugin provides a comprehensive solution for managing the entire lifecycle 
 - [ ] Backups and disaster recovery
 - [ ] Access logging and isolation
 - [ ] DDoS protection and penetration testing
-
-## 🧩 Optional/Advanced Modules
-
-### 💼 Advanced Lending Operations
-
-- [ ] Loan syndication support
-- [ ] Multi-lender marketplace
-- [ ] Investor dashboard/reporting
-- [ ] White-labeled portals for partners

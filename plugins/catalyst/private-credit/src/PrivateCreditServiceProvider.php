@@ -2,15 +2,15 @@
 
 namespace Catalyst\PrivateCredit;
 
-// use Filament\Support\Assets\Css;
-// use Filament\Support\Facades\FilamentAsset;
-
 use Catalyst\PrivateCredit\Livewire\RepaymentSchedule;
+use Catalyst\PrivateCredit\Models\Investor;
+use Catalyst\PrivateCredit\Policies\InvestorPolicy;
 use Livewire\Livewire;
 use Webkul\Support\Console\Commands\InstallCommand;
 use Webkul\Support\Console\Commands\UninstallCommand;
 use Webkul\Support\Package;
 use Webkul\Support\PackageServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class PrivateCreditServiceProvider extends PackageServiceProvider
 {
@@ -32,6 +32,9 @@ class PrivateCreditServiceProvider extends PackageServiceProvider
             '2025_07_02_054302_create_timezones_table',
             '2025_07_02_164433_create_private_credit_loans_table',
             '2025_07_04_162233_create_private_credit_discounts_table',
+            '2025_07_06_020722_create_private_credit_investors_table',
+            '2025_07_06_153036_create_private_credit_investor_products_table',
+            '2025_07_07_162408_create_private_credit_investor_accounts_table',
         ])
         ->runsMigrations()
         ->hasSettings([
@@ -56,8 +59,8 @@ class PrivateCreditServiceProvider extends PackageServiceProvider
     public function packageBooted(): void
     {
         Livewire::component('repayment-schedule', RepaymentSchedule::class);
-        // FilamentAsset::register([
-        // Css::make('blogs', __DIR__.'/../resources/dist/blogs.css'),
-        // ], 'blogs');
+
+        Gate::policy(Investor::class, InvestorPolicy::class);
+        Gate::policy(\Catalyst\PrivateCredit\Models\InvestorProduct::class, \Catalyst\PrivateCredit\Policies\InvestorProductPolicy::class);
     }
 }
